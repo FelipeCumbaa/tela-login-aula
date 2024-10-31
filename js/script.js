@@ -2,7 +2,7 @@ const form = document.getElementById('form');
 const name_input = document.getElementById('name-input');
 const email_input = document.getElementById('email-input');
 const password_input = document.getElementById('password-input');
-const repeat_password_input = document.getElementById('repat-password-input');
+const repeat_password_input = document.getElementById('repeat-password-input');
 const error_message = document.getElementById('error-message');
 
 form.addEventListener('submit', (e) => {
@@ -12,7 +12,7 @@ form.addEventListener('submit', (e) => {
     const fileName = e.target.baseURI.split("/").pop();
 
     if (fileName === "register.html"){
-        erros = validateRegisterForm(
+        errors = validateRegisterForm(
             name_input.value,
             email_input.value,
             password_input.value,
@@ -42,7 +42,6 @@ form.addEventListener('submit', (e) => {
     }
 
     window.location.href = "home.html"
-
 });
 
 function validateloginform(email, password) {
