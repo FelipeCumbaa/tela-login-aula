@@ -63,8 +63,10 @@ function validateloginform(email, password) {
 }
 
 const allInputs = [
+    name_input,
     email_input,
     password_input,
+    repeat_password_input,
   ].filter((input) => input != null);
   
   allInputs.forEach((input) => {
@@ -99,3 +101,39 @@ function verifyLogin(email, password) {
         return false;
     }
 }
+function validateRegisterForm(name, email, password, repeatPassword) {
+    let errors = [];
+  
+    if (name === "" || name == null) {
+      errors.push("Nome é obrigatório");
+      name_input.parentElement.classList.add("incorrect");
+    }
+  
+    if (email === "" || email == null) {
+      errors.push("Email é obrigatório");
+      email_input.parentElement.classList.add("incorrect");
+    }
+  
+    if (password === "" || password == null) {
+      errors.push("Senha é obrigatória");
+      password_input.parentElement.classList.add("incorrect");
+    } else {
+      if (password.length < 8) {
+        errors.push("Senha deve ter no mínimo 8 caracteres");
+        password_input.parentElement.classList.add("incorrect");
+      }
+    }
+  
+    if (repeatPassword === "" || repeatPassword == null) {
+      errors.push("Repita a senha");
+      repeat_password_input.parentElement.classList.add("incorrect");
+    } else {
+      if (password !== repeatPassword) {
+        errors.push("Senhas não conferem");
+        password_input.parentElement.classList.add("incorrect");
+        repeat_password_input.parentElement.classList.add("incorrect");
+      }
+    }
+  
+    return errors;
+    }
